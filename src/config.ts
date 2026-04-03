@@ -48,7 +48,7 @@ export const siteConfig = {
    * Should be the full production URL without trailing slash.
    * Example: 'https://example.com'
    */
-  url: getEnv('SITE_URL', 'https://example.com'),
+  url: getEnv('SITE_URL', 'https://mujtaba.ai'),
   
   /**
    * Site language (ISO 639-1 code)
@@ -70,7 +70,7 @@ export const siteConfig = {
    * 
    * Default meta description for SEO and social sharing.
    */
-  description: getEnv('SITE_DESCRIPTION', 'Engineering leader specializing in system architecture, technical decision-making, and delivering measurable business impact.'),
+  description: getEnv('SITE_DESCRIPTION', 'Engineering leader specializing in AI, QA, system architecture, technical decision-making, and delivering measurable business impact.'),
   
   /**
    * Author information
