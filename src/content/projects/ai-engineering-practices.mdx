@@ -1,0 +1,78 @@
+---
+title: "AI-Augmented Engineering Practices at Bykea"
+role: "Co-Head of Engineering"
+year: 2024
+featured: true
+order: 4
+outcomeSummary: "Pioneered AI-first engineering workflows across Bykea's engineering squads — integrating LLM-assisted code review, intelligent test generation, and AI-augmented sprint planning to increase team throughput while maintaining quality."
+overview: "As engineering teams scale, the cognitive load on senior engineers grows faster than headcount. I identified AI as the key multiplier — not to replace engineers, but to amplify their judgment. Led the adoption of AI-assisted tooling across Bykea's three engineering squads."
+problem: "With 25+ engineers across 3 squads and an aggressive product roadmap, the bottleneck wasn't talent — it was senior engineering attention. Code review queues grew. Test coverage drifted. Sprint estimations were inconsistent. The team needed intelligent amplification, not just more headcount."
+constraints:
+  - "Must integrate into existing GitLab CI/CD workflow without disruption"
+  - "AI suggestions must be reviewable and auditable — not black-box"
+  - "Privacy-sensitive codebase (financial transactions, user location data)"
+  - "Team has varying AI literacy levels"
+approach: "Started with a pilot squad, measured impact for 2 sprints, then scaled. Focused on high-leverage touch points: test case generation, code review assistance, and sprint retrospective synthesis. Built internal guidelines for responsible AI use in engineering workflows."
+keyDecisions:
+  - decision: "AI-assisted test generation over full AI automation"
+    reasoning: "AI-generated test cases still require human review for business logic correctness. Positioning AI as a 'first draft' writer rather than an autonomous test author maintained quality ownership while dramatically reducing blank-page paralysis."
+    alternatives:
+      - "Fully automated AI test generation"
+      - "AI for code generation only"
+      - "No AI in test workflow"
+  - decision: "LLM for retrospective synthesis and pattern detection"
+    reasoning: "Sprint retrospectives generate valuable qualitative data that rarely gets analyzed systematically. Using AI to identify recurring themes across 10 sprints of retro notes revealed systemic issues invisible to any single sprint's review."
+    alternatives:
+      - "Manual retro analysis by engineering manager"
+      - "Structured retro templates only"
+techStack:
+  - "GitHub Copilot"
+  - "LLM APIs"
+  - "GitLab CI/CD"
+  - "Python"
+  - "JIRA"
+impact:
+  - metric: "30%"
+    description: "Reduction in code review turnaround time"
+  - metric: "40%"
+    description: "Faster test case first-draft creation"
+  - metric: "3 squads"
+    description: "Adopted AI-augmented workflow"
+---
+
+## The Vision
+
+I believe the next generation of engineering leadership is defined by how well you leverage AI as a force multiplier for your team. Not prompting tools — but deeply integrating AI into the systems and processes that govern how your team operates.
+
+At Bykea, I started exploring this systematically.
+
+## Where AI Made the Biggest Difference
+
+### 1. Test Case Generation
+
+QA engineers used AI to generate first-draft test cases from user stories and acceptance criteria. The AI would:
+- Parse the Gherkin-format acceptance criteria
+- Generate scenario skeletons with positive, negative, and edge cases
+- Flag potential gaps (security, performance, localization)
+
+Engineers then reviewed, refined, and added domain-specific scenarios. Time savings: 40% on test planning.
+
+### 2. Code Review Assistance  
+
+Configured AI review passes to run before human review, flagging:
+- Common anti-patterns in our specific tech stack
+- Missing error handling
+- Test coverage gaps
+- Inconsistencies with our internal coding standards
+
+This pre-filtering meant human reviewers could focus on architecture, business logic, and mentorship — not syntactic issues.
+
+### 3. Retrospective Intelligence
+
+Built a simple pipeline that fed sprint retrospective notes into an LLM for cross-sprint pattern detection. After 5 sprints, it surfaced that "unclear acceptance criteria" was the root cause behind 40% of bugs and 60% of scope creep complaints — something no single retro had surfaced.
+
+## What I Learned
+
+**AI adoption is a change management problem.** The engineers most resistant to AI tooling weren't the ones with the least skill — they were the ones most protective of craft. Framing AI as "draft automation" rather than "replacement" changed the conversation entirely.
+
+**Measure before and after.** Without baseline metrics, AI adoption stories become anecdotes. We tracked PR cycle time, bug escape rate, and test coverage per sprint — which gave us real data on impact.

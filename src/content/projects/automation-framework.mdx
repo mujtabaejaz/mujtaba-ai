@@ -1,0 +1,93 @@
+---
+title: "Mobile & API Automation Framework at Scale"
+role: "Principal SQA Engineer → Deputy Head of Engineering"
+year: 2022
+featured: true
+order: 2
+outcomeSummary: "Architected end-to-end automation frameworks achieving 90%+ test coverage across mobile and API layers — slashing regression time by 50% and enabling Bykea to safely release at startup velocity."
+overview: "Built and maintained a comprehensive automation ecosystem for Bykea's multi-platform apps (customer Android/iOS + partner Android), integrating mobile UI automation, API test suites, performance tests, and CI/CD pipelines into a single quality-first delivery process."
+problem: "At 3M+ users and growing, manual regression testing was taking too long and missing too much. Each release was a high-stakes event. A single uncaught regression could affect millions of active users mid-trip. The team needed automation that was maintainable, scalable, and integrated into the daily development workflow."
+constraints:
+  - "Must cover 3 separate apps (Android + iOS + partner) without tripling effort"
+  - "Framework must be maintainable by engineers without deep automation expertise"
+  - "BrowserStack real-device coverage required for reliable results"
+  - "CI integration mandatory — tests must run on every build"
+approach: "Designed a layered automation strategy: API layer tests ran first (fast, cheap), followed by mobile UI automation for critical user journeys. Used Appium + Python for mobile, Rest Assured + JMeter for APIs. Built Jenkins pipelines for nightly regression and pre-release smoke gates."
+keyDecisions:
+  - decision: "Python over Java for Appium scripts"
+    reasoning: "Python's readability and fast iteration cycle made it easier for the whole QA team to contribute, not just automation specialists. Lower barrier to entry = more tests written."
+    alternatives:
+      - "Java (familiar but verbose)"
+      - "JavaScript / WebdriverIO"
+      - "Robot Framework"
+  - decision: "Layered test strategy (API → Smoke → Full Regression)"
+    reasoning: "Running full regression on every commit was too slow. API tests ran in minutes, smoke tests in ~15 mins, full regression overnight. This balanced speed with coverage."
+    alternatives:
+      - "Full regression on every build"
+      - "Manual smoke + automated regression only"
+  - decision: "BrowserStack for real device coverage"
+    reasoning: "Emulators miss device-specific rendering bugs, memory pressure scenarios, and OS-level interactions. Real devices on BrowserStack caught issues that emulators missed regularly."
+    alternatives:
+      - "Emulator-only testing"
+      - "Internal device lab"
+      - "Firebase Test Lab"
+techStack:
+  - "Appium"
+  - "Python"
+  - "Java"
+  - "Cucumber / Gherkin"
+  - "BrowserStack"
+  - "JMeter"
+  - "Postman"
+  - "Rest Assured"
+  - "Jenkins"
+  - "GitLab CI"
+impact:
+  - metric: "90%+"
+    description: "Test coverage achieved across mobile and API layers"
+  - metric: "50%"
+    description: "Reduction in regression testing cycle time"
+  - metric: "3 apps"
+    description: "Covered by unified automation framework"
+  - metric: "99.5%+"
+    description: "Build stability maintained on production"
+---
+
+## The Automation Architecture
+
+### Layer 1: API Automation
+
+Every backend endpoint had automated tests in Postman collections and Rest Assured suites. These ran on every merge request — catching integration bugs before any UI testing was needed.
+
+JMeter scripts covered performance and load scenarios, simulating peak traffic conditions (surge pricing events, marketing campaigns) to validate backend resilience.
+
+### Layer 2: Mobile UI Automation
+
+The Appium framework was built with Page Object Model (POM) architecture:
+
+- **Page Objects** encapsulated each screen's elements and actions
+- **Test Suites** were organized by feature (booking, payment, tracking, auth)
+- **Gherkin/Cucumber** made test scenarios readable by PMs and stakeholders
+- **BrowserStack** provided real-device coverage across Samsung, OnePlus, Xiaomi (key Pakistani market devices)
+
+### Layer 3: CI/CD Integration
+
+```
+Merge Request → API Smoke Tests (5 min)
+             → API Regression (20 min, parallel)
+             → Mobile Smoke (15 min, BrowserStack)
+             → Nightly Full Regression (overnight)
+```
+
+### Framework Maintenance
+
+Wrote internal documentation and ran training sessions so the entire QA team could contribute to the framework — not just maintain it. Treated automation code with the same code review standards as production code.
+
+## Impact on Delivery Velocity
+
+Before automation, a full regression cycle took 3-4 days of manual testing. After, the CI pipeline provided continuous confidence with:
+- **Pre-merge:** API smoke in 5 minutes
+- **Pre-release:** Full mobile regression in 4 hours
+- **Nightly:** Complete coverage run with detailed reports
+
+This freed QA engineers to focus on exploratory testing, edge cases, and new feature verification — the work that actually requires human judgment.

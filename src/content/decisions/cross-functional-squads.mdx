@@ -1,0 +1,87 @@
+---
+title: "Structuring Engineering Into Cross-Functional Agile Squads"
+date: 2022-12-01
+context: "As Bykea scaled engineering from 10 to 25+ engineers, the traditional functional team structure (separate dev, QA, backend, mobile teams) was creating handoff problems, slow delivery, and accountability gaps. Features required coordination across 4+ team leads before shipping."
+decision: "Reorganize into 3 cross-functional agile squads, each owning a product domain end-to-end, with embedded QA, embedded product ownership, and full-stack accountability"
+alternatives:
+  - option: "Keep functional teams, add better coordination processes"
+    pros:
+      - "Deep specialization within each function"
+      - "Consistent technical standards across function"
+      - "Less organizational disruption"
+    cons:
+      - "Handoff delays compound with every feature"
+      - "No squad owns the user outcome — only their slice"
+      - "Hard to achieve true agility with functional silos"
+  - option: "Two large squads instead of three"
+    pros:
+      - "Simpler management"
+      - "More engineers per squad = more flexibility"
+    cons:
+      - "Larger squads have more coordination overhead"
+      - "Two-pizza rule violated — communication efficiency drops"
+      - "Less focused product ownership"
+  - option: "Three domain-aligned squads with embedded roles"
+    pros:
+      - "End-to-end ownership of user outcomes"
+      - "Faster decisions — squad can ship without cross-team approvals"
+      - "QA embedded = quality from the start"
+      - "Clear accountability when things go wrong"
+      - "Squad identity = higher engagement and ownership"
+    cons:
+      - "Risk of siloed knowledge"
+      - "Harder to share engineers across squads for urgent tasks"
+      - "Requires strong squad leads"
+reasoning: "Conway's Law is real — your architecture will mirror your org structure. We wanted to build modular, independently-deployable services, so we needed independently-operating teams. The three squad model aligned team boundaries with product domain boundaries, reducing the coordination tax on every feature."
+tags:
+  - "engineering-leadership"
+  - "team-structure"
+  - "agile"
+  - "organization"
+relatedProjects:
+  - "bykea-platform-scale"
+---
+
+## Why Squads Over Functions
+
+When a feature required the backend team, the mobile team, and the QA team to all coordinate, three things happened:
+
+1. **Calendar negotiation** — three team leads finding overlapping sprint capacity
+2. **Context switching** — engineers context-switched between their primary team and the cross-functional feature
+3. **Accountability diffusion** — when a bug shipped, whose sprint review should have caught it?
+
+Squads eliminate these by making one team accountable for a domain from backend to mobile to quality.
+
+## The Three Squads at Bykea
+
+**Squad 1: Customer Experience**  
+Owned the customer-facing apps (Android + iOS). Booking flows, real-time tracking, payments, ratings.
+
+**Squad 2: Driver/Partner Experience**  
+Owned the partner app. Job acceptance, navigation integration, earnings, incentive systems.
+
+**Squad 3: Platform & Growth**  
+Owned backend services, infrastructure, feature flags, bidding system, promotions engine.
+
+## My Role: Engineering Lead Across Squads
+
+Managing 3 squads of 25+ engineers meant my job shifted from hands-on delivery to:
+
+- **Removing blockers** — the highest-leverage thing a lead can do
+- **Setting standards** — shared coding conventions, release criteria, incident protocols
+- **Alignment rituals** — weekly cross-squad syncs, monthly technical direction reviews
+- **Career development** — 1:1s, growth plans, promotion advocacy
+
+## What Made It Work
+
+**Squad leads with real authority.** I gave each squad lead decision-making power within their domain. I was available for escalations, not approvals. Micromanaging squad leads destroys the model.
+
+**Shared on-call rotation.** All squads rotated through production on-call. This created empathy across squads — when you're on-call for another squad's services, you care about their code quality.
+
+**Cross-squad retrospectives quarterly.** Monthly retros within squads, but quarterly cross-squad retros surfaced systemic issues no single squad could see.
+
+## The Hard Parts
+
+The transition was bumpy for 2 sprints. Engineers who had deep functional identity ("I'm a backend engineer") had to embrace "I'm a customer experience squad engineer who works on the backend." That's a real identity shift.
+
+The key: **make squad membership a source of pride.** We named the squads, created squad channels, celebrated squad wins. Identity followed.

@@ -1,0 +1,76 @@
+---
+title: "E2E Automation for VIDIZMO Enterprise Video Platform"
+role: "Software Engineer → Software Engineer"
+year: 2019
+featured: false
+order: 3
+outcomeSummary: "Built and maintained end-to-end TypeScript automation suites for a Fortune 500 enterprise video platform recognized in Gartner's Magic Quadrant — improving test coverage, release confidence, and team velocity."
+overview: "VIDIZMO is Softech Worldwide's flagship product — a live & on-demand enterprise video streaming platform used by Fortune 500 companies including Ernst & Young, Xerox, Exelon, and Avast. I joined as an intern and grew into a core contributor, owning the E2E automation test suite."
+problem: "Enterprise clients demanded zero-defect releases. The existing manual testing process was slow, prone to human error, and couldn't scale with the product's growing feature set. Complex features like live streaming, content management, and access control required reliable automated verification."
+constraints:
+  - "Gartner Magic Quadrant positioning — quality standards must match enterprise expectations"
+  - "Broad browser and platform compatibility requirements"
+  - "Complex UI with nested workflows (live streams, video management, admin portals)"
+  - "Small QA team requiring high leverage from automation"
+approach: "Developed comprehensive E2E test suites using TypeScript and Protractor framework, covering the full user journey from content upload through streaming and analytics. Implemented BDD-style test scenarios readable by product owners and established thorough bug documentation processes in TFS."
+keyDecisions:
+  - decision: "TypeScript over JavaScript for test scripts"
+    reasoning: "TypeScript's type safety caught errors at compile time before tests even ran, reducing flaky tests caused by interface mismatches. Better IDE support also improved developer experience."
+    alternatives:
+      - "JavaScript with Protractor"
+      - "C# with Selenium"
+      - "Java with TestNG"
+  - decision: "Page Object Model with factory pattern"
+    reasoning: "Enterprise app had 50+ distinct screens. POM made tests maintainable as UI evolved, and the factory pattern let us swap page implementations without touching test logic."
+    alternatives:
+      - "Direct locator usage in tests"
+      - "Keyword-driven framework"
+techStack:
+  - "TypeScript"
+  - "Protractor"
+  - "Selenium WebDriver"
+  - "Team Foundation Server (TFS)"
+  - "Azure DevOps"
+impact:
+  - metric: "20%"
+    description: "Enhancement in user experience through better-tested releases"
+  - metric: "Fortune 500"
+    description: "Clients protected by comprehensive automation coverage"
+  - metric: "50+"
+    description: "Distinct screen flows automated across the platform"
+---
+
+## The Platform
+
+VIDIZMO serves enterprise clients who run internal video portals, training platforms, and live event streaming — security and reliability are non-negotiable. A bug in access control could expose confidential executive communications. A live streaming failure during a company-wide all-hands is a crisis.
+
+## What I Built
+
+### E2E Automation Suite
+
+Working from intern to full-time engineer, I built and owned the TypeScript/Protractor automation suite covering:
+
+- **Content Management:** Upload, transcode, catalog, and search flows
+- **Live Streaming:** Stream creation, viewer experience, recording
+- **Access Control:** Role-based permissions, SSO integration, group management
+- **Analytics:** View tracking, engagement reports, admin dashboards
+
+### Bug Documentation Process
+
+Introduced a structured bug reporting template in TFS that captured:
+- Exact reproduction steps
+- Expected vs actual behavior
+- Environment details (browser, OS, resolution)
+- Video recordings of failures
+
+This reduced developer debug time significantly and became the standard across the QA team.
+
+### Knowledge Transfer
+
+Recognized as "Trainer of the Month" for organizing internal training sessions and presenting external guest speaker sessions to attract engineering talent to Softech.
+
+## Key Learnings
+
+This role taught me that **enterprise software quality is fundamentally about trust**. When your customers are Fortune 500 companies, a single escaped bug doesn't just create a support ticket — it damages a business relationship.
+
+The discipline of thorough documentation, reproducible test scenarios, and structured defect management became the foundation I built everything on at Bykea.

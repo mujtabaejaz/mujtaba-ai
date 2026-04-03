@@ -1,0 +1,30 @@
+---
+date: 2020-06-01
+title: "Building Bykea's Automation Framework from Scratch"
+type: "learning"
+description: "Designed and built the mobile automation framework that would eventually cover 90%+ of test scenarios. Learned that the hardest part of automation isn't the code — it's getting the team to trust it."
+skills:
+  - "Appium"
+  - "Python"
+  - "Jenkins CI/CD"
+  - "BrowserStack"
+  - "Framework Architecture"
+---
+
+## The Technical Challenge
+
+We needed automation that could run on real Android and iOS devices, integrate into CI, and be maintained by engineers who weren't automation specialists. That's a trifecta of constraints.
+
+Solution: **Appium + Python + Page Object Model + BrowserStack**
+
+Python's readability meant any QA engineer could write and review scripts. BrowserStack gave us device coverage we couldn't have afforded with an internal lab.
+
+## The Trust Problem
+
+The harder challenge was trust. Engineers didn't believe the automation results when tests failed — they'd assume it was a flaky test rather than a real bug. I solved this by:
+
+1. Making test failures actionable (good error messages, screenshots, logs)
+2. Tracking flakiness rates publicly — and fixing flaky tests immediately
+3. Never ignoring a failing test, even if it was inconvenient
+
+After 3 months, the team started trusting the green ✅ as much as a human sign-off.

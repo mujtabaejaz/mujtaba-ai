@@ -1,0 +1,154 @@
+---
+/**
+ * Footer Component
+ * 
+ * Site-wide footer displaying copyright information and social media links.
+ * Automatically filters and displays only configured social links from site config.
+ * Responsive layout that stacks vertically on mobile devices.
+ * 
+ * Social links are pulled from siteConfig.social and only displayed if they have
+ * a URL value configured. Links open in new tabs with proper security attributes.
+ * 
+ * @component
+ * 
+ * @example
+ * ```astro
+ * <Footer />
+ * ```
+ */
+import { siteConfig } from '../config';
+
+/**
+ * Gets the current year for copyright display
+ */
+const currentYear = new Date().getFullYear();
+
+/**
+ * Filters and formats social links from site configuration
+ * 
+ * Only includes platforms that have a URL configured (non-empty values).
+ * Capitalizes platform names for display (e.g., "github" becomes "Github").
+ * 
+ * @returns Array of social link objects with platform name and URL
+ */
+const socialLinks = Object.entries(siteConfig.social)
+  .filter(([_, url]) => url)
+  .map(([platform, url]) => ({
+    platform: platform.charAt(0).toUpperCase() + platform.slice(1),
+    url
+  }));
+---
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <span class="footer-name">{siteConfig.author.name}</span>
+      <span class="footer-tagline">Building scalable products. Leading engineering excellence.</span>
+    </div>
+    
+    <div class="footer-right">
+      {socialLinks.length > 0 && (
+        <div class="footer-social">
+          {socialLinks.map((link, index) => (
+            <>
+              <a href={link.url} target="_blank" rel="noopener noreferrer">
+                {link.platform}
+              </a>
+              {index < socialLinks.length - 1 && <span class="separator">·</span>}
+            </>
+          ))}
+        </div>
+      )}
+      <a href={`mailto:${siteConfig.author.email}`} class="footer-email">
+        {siteConfig.author.email}
+      </a>
+      <span class="copyright">© {currentYear}</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    padding: 2.5rem 1.5rem;
+    margin-top: auto;
+  }
+
+  .footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1.5rem;
+  }
+
+  .footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .footer-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+  }
+
+  .footer-tagline {
+    font-size: 0.775rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  .footer-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .footer-social {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .footer-social a,
+  .footer-email {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-social a:hover,
+  .footer-email:hover {
+    color: var(--color-text);
+  }
+
+  .copyright {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+  }
+
+  .separator {
+    color: var(--color-text-muted);
+    opacity: 0.5;
+    user-select: none;
+  }
+
+  @media (max-width: 600px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .footer-right {
+      justify-content: flex-start;
+    }
+  }
+</style>

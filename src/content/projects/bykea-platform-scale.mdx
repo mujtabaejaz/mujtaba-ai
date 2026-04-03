@@ -1,0 +1,113 @@
+---
+title: "Scaling Bykea to 10M+ Users & 1.5M Monthly Trips"
+role: "Co-Head of Engineering / Deputy Head of Engineering"
+year: 2023
+featured: true
+order: 1
+outcomeSummary: "Scaled the platform from a fragile QA-dependent model to a quality-embedded engineering culture — delivering 500+ releases, 99.8% infrastructure uptime, and $240K boost in recurring revenue."
+overview: "Bykea is Pakistan's largest ride-hailing and logistics super-app. After leading a multi-year evolution from QA Engineer to Deputy Head of Engineering, I drove the platform's reliability, quality, and team transformation as it scaled from 3M to 10M+ users and grew to orchestrate 1.5M trips monthly."
+problem: "As Bykea grew aggressively, the traditional QA-at-the-end model was breaking down. Releases were slow, production bugs were high, and the QA team was a bottleneck rather than an enabler. The platform needed to scale both technically and organizationally."
+constraints:
+  - "High-stakes consumer app: crashes affected millions of rides and courier deliveries"
+  - "Fast-moving startup with aggressive release cadence"
+  - "Distributed teams with varying levels of QA maturity"
+  - "Limited automation coverage creating regression risk at scale"
+approach: "Transformed QA from a gate-keeping function into embedded quality assistance. Introduced automation-first strategy, shifted testing left, and rebuilt the squad model around cross-functional ownership. Instrumented the platform with deep observability and established release standards that teams could independently meet."
+keyDecisions:
+  - decision: "Shift from Quality Assurance to Quality Assistance model"
+    reasoning: "Traditional QA was creating a handoff culture where devs threw code over the wall. Moving to quality assistance embedded QA thinking into every sprint, making engineers co-owners of quality and reducing bug leakage at the source."
+    alternatives:
+      - "Hire more QA engineers for faster review"
+      - "Introduce automated gates in CI only"
+      - "Outsource regression testing"
+  - decision: "Appium + Python for mobile automation, Rest Assured + Postman for API layer"
+    reasoning: "Appium gave us true cross-platform mobile coverage; Python scripts were maintainable by the team. The API layer needed to be validated independently of the UI to catch integration regressions faster."
+    alternatives:
+      - "Espresso / XCUITest (platform-specific)"
+      - "Manual regression only"
+      - "Third-party testing services"
+  - decision: "Mandatory ISTQB certification for the QA team"
+    reasoning: "Standardizing on a globally recognized certification ensured the entire team shared a common testing vocabulary, principles, and practices — reducing inconsistency in test coverage and bug reporting quality."
+    alternatives:
+      - "Internal training only"
+      - "Role-specific certifications"
+techStack:
+  - "Appium"
+  - "Python"
+  - "Java"
+  - "JMeter"
+  - "Postman / Rest Assured"
+  - "GitLab CI/CD"
+  - "JIRA"
+  - "Confluence"
+  - "BrowserStack"
+  - "Cucumber / Gherkin"
+impact:
+  - metric: "500+"
+    description: "Successful production releases managed"
+  - metric: "10M+"
+    description: "Active users supported on the platform"
+  - metric: "1.5M"
+    description: "Monthly trips orchestrated"
+  - metric: "$240K"
+    description: "Boost in annual recurring revenue"
+  - metric: "99.8%"
+    description: "Infrastructure uptime maintained"
+  - metric: "99.6%"
+    description: "Crash-free rate across all mobile apps"
+  - metric: "50%"
+    description: "Reduction in QA cycle time"
+  - metric: "20%"
+    description: "Decrease in production bug leakage"
+---
+
+## The Challenge
+
+When I joined Bykea in 2019 as a Software QA Engineer, the platform was serving ~3M users. By 2022, user numbers had tripled and the engineering org had grown significantly — but the quality model hadn't kept pace.
+
+Releases were stressful. Regression runs were long. And the QA team was constantly the last line of defense, catching issues that should have been caught much earlier.
+
+## What I Built
+
+### Automation-First Foundation
+
+I architected a mobile automation framework using Appium + Python from scratch, covering the customer Android app, customer iOS app, and partner app. The framework ran on Jenkins with BrowserStack for real-device coverage.
+
+For the API layer, I wrote comprehensive test suites in Postman and JMeter that were integrated into the CI pipeline — so every backend deployment was automatically regression-tested before any UI testing began.
+
+> **Result:** 90%+ test coverage. Regression testing time cut by ~50%.
+
+### Quality Assistance Transformation
+
+The cultural shift was harder than the technical work. I restructured QA processes so that:
+
+- QA engineers were embedded in squads, not in a separate team
+- Test planning started at the Epic/User Story review phase, not post-development
+- Developers owned unit and integration tests; QA focused on system, E2E, and exploratory
+- Post-mortems became standard practice to learn from production issues
+
+> **Result:** QA time reduced by 50%. Production bug leakage dropped by 20%.
+
+### Release Readiness Framework
+
+I defined and enforced release readiness criteria across all three apps (customer Android, customer iOS, partner Android). This included sign-off checklists, automated smoke test gates, and rollout monitoring dashboards.
+
+> **Result:** 99.6% crash-free rate maintained at scale.
+
+## Engineering Leadership
+
+By late 2022, I was leading 3 agile squads of 25+ engineers as Principal SQA Engineer, then Deputy Head of Engineering. My leadership work included:
+
+- Daily standups, sprint planning, retrospectives, and post-mortems
+- Stakeholder ETA management and epic communication
+- Talent acquisition (QA and engineering interviews)
+- Organizing community events like *Product Soch Cafes*
+- Driving product innovation: bidding feature, tipping, missed-call authentication
+
+## Lessons Learned
+
+1. **Quality is a team sport.** The single highest-leverage change was making developers feel ownership over quality — not just shipping features.
+
+2. **Automation ROI compounds.** Early investment in a solid framework paid dividends across every subsequent release cycle.
+
+3. **Leadership is process design.** At scale, how you run ceremonies, handle decisions, and communicate priorities matters more than individual technical skill.

@@ -1,0 +1,82 @@
+---
+title: "Why Your QA Team Is the Wrong Solution to Your Quality Problem"
+description: "A QA team that catches bugs is a symptom, not a solution. Here's how to fix the actual problem — and what happens to your release velocity when you do."
+publishDate: 2023-09-20
+tags:
+  - "quality"
+  - "engineering-culture"
+  - "process"
+  - "startup-engineering"
+---
+
+## The Trap Most Engineering Teams Fall Into
+
+Here's how most software teams handle quality:
+
+1. Developers build features
+2. Features go to QA
+3. QA finds bugs
+4. Developers fix bugs
+5. QA re-tests
+6. Repeat until "done"
+7. Release
+
+This model has a fundamental flaw: **it treats quality as someone else's responsibility.**
+
+When developers throw code over the wall to QA, they've mentally shipped their feature. QA becomes the person who breaks the news that it's not done yet. And the longer the bug lives before being found, the more expensive it is to fix.
+
+I've seen this model collapse at multiple companies. At Bykea, I watched it nearly break our release process as we scaled from 3M to 10M users.
+
+## What Actually Causes Production Bugs
+
+Study your production bugs for one quarter. Not the symptoms — the root causes.
+
+At Bykea, our post-mortem data consistently showed:
+- ~40% came from vague or missing acceptance criteria
+- ~30% came from untested integration points between services
+- ~20% came from regression in unchanged code
+- ~10% were genuine coding mistakes
+
+The first two causes — vague requirements and untested integrations — **can't be fixed by testing more.** They're process problems that testing can only reveal, not prevent.
+
+## The Quality Assistance Model
+
+Quality Assistance means embedding quality thinking into every phase of development, not just validating at the end.
+
+**In Epic Review:** QA engineers ask "what could go wrong?" before any code is written. Vague acceptance criteria get challenged. Missing scenarios get added.
+
+**In Development:** Developers write unit tests for their code. QA isn't the first person to run the feature — they're the first person to stress-test it from a user perspective.
+
+**In Deployment:** Automated gates catch regression before any human reviews. The CI pipeline is the first line of defense, not the last.
+
+**In Production:** Monitoring and alerting catch what testing missed. Post-mortems create process feedback loops.
+
+## The Results (With Real Numbers)
+
+After restructuring Bykea's quality model:
+
+- **QA cycle time dropped 50%** — because QA engineers were now writing test cases during development, not starting from scratch after
+- **Production bug leakage dropped 20%** — because bugs were being caught earlier, at the source
+- **Developer/QA relationship improved significantly** — because QA was now a partner in the sprint, not a bottleneck at the end
+
+## The Hard Truth About This Transition
+
+It requires buy-in from developers, not just QA.
+
+The biggest resistance I encountered wasn't from QA engineers (they loved being more strategic). It was from developers who were used to shipping features without owning test coverage.
+
+The framing that worked: **"Testing your own code isn't extra work — it's part of building the feature."**
+
+Developers who write tests are developers who write better code. Because when you know you'll have to test it, you think differently about how you build it.
+
+## Where to Start
+
+1. **Add QA to your epic kick-off process.** One QA engineer in the room during requirements discussion pays for itself in prevented rework.
+
+2. **Define the test coverage boundary.** Explicitly decide: developers own unit tests, QA owns E2E and exploratory. No ambiguity about who tests what.
+
+3. **Track production bugs, not test counts.** QA "finding more bugs" isn't success. Fewer production bugs is success.
+
+4. **Run blameless post-mortems.** Every production bug is a process failure, not a people failure. Find the gap and close it.
+
+Quality isn't a team — it's a culture. Build the culture, and your QA team becomes the strategic asset they should always have been.
