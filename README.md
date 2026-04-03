@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Muhammad Mujtaba — Personal Portfolio
 
 > **Co-Head of Engineering · AI Advocate · Builder**  
@@ -155,3 +156,7 @@ CSS variables are in `src/styles/global.css`.
 - [ ] Privacy-first analytics (Plausible / Fathom)
 - [ ] RSS feed for writing
 - [ ] Pagefind search integration
+=======
+# mujtaba-ai
+Mujtaba AI Website Repo
+>>>>>>> 39c376f88a15da7d6e04f3e5cd2a288f2b511d45
