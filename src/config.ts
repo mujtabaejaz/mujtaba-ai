@@ -63,7 +63,7 @@ export const siteConfig = {
    * 
    * Used as fallback when page-specific title is not provided.
    */
-  title: getEnv('SITE_TITLE', 'Professional Portfolio'),
+  title: getEnv('SITE_TITLE', 'Mujtaba.AI'),
   
   /**
    * Site description
@@ -89,7 +89,7 @@ export const siteConfig = {
     bio: getEnv('SITE_AUTHOR_BIO', 'Engineering leader focused on solving complex technical challenges through thoughtful architecture and pragmatic trade-off analysis.'),
     
     /** Contact email address */
-    email: getEnv('SITE_AUTHOR_EMAIL', 'mmujtabaejaz@gmail.com'),
+    email: getEnv('SITE_AUTHOR_EMAIL', 'hi@mujtaba.ai'),
     
     /** Location (optional, empty string to hide) */
     location: getEnv('SITE_AUTHOR_LOCATION', 'Karachi, Pakistan'),
